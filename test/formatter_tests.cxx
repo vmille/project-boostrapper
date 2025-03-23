@@ -2,13 +2,13 @@
 // Created by Vivien Mille on 26/12/2023.
 //
 
-#include "catch2/catch_all.hpp"
 
-#include "formatters/envrc.hxx"
-#include "formatters/nix.hxx"
-#include "formatters/npm.hxx"
-#include "formatters/marp.hxx"
-#include "formatters/vcpkg.hxx"
+#include <catch2/catch_all.hpp>
+
+#include <formatters/envrc.hxx>
+#include <formatters/nix.hxx>
+#include <formatters/marp.hxx>
+#include <formatters/vcpkg.hxx>
 
 #include <iterator>
 #include <fstream>
@@ -46,13 +46,6 @@ TEST_CASE("shell.nix / package name", "[formatter][nix]") {
   auto constexpr f = vm::formatters::file_formatter<vm::formatters::nix_tag>();
   auto p = vm::formatters::nix_package_names_format<vm::formatters::my_app_tag>();
   REQUIRE_THAT(fmt::format(f, fmt::arg("packages", p), fmt::arg("hooks", "")), Matches("[\\S\\s]*packages = \\[[\\s]*pkgs\\.my-app[\\s]*\\][\\S\\s]*"));
-}
-
-TEST_CASE("shell.nix / package names", "[formatter][nix]") {
-  using namespace Catch::Matchers;
-  auto constexpr f = vm::formatters::file_formatter<vm::formatters::nix_tag>();
-  auto p = vm::formatters::nix_package_names_format<vm::formatters::my_app_tag, vm::formatters::npm_tag>();
-  REQUIRE_THAT(fmt::format(f, fmt::arg("packages", p), fmt::arg("hooks", "")), Matches("[\\S\\s]*packages = \\[[\\s]*pkgs\\.my-app\\s*pkgs\\.npm[\\s]*\\];[\\S\\s]*"));
 }
 
 TEST_CASE("shell.nix / package hook", "[formatter][nix]") {

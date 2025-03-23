@@ -5,7 +5,7 @@
 #ifndef PROJECT_BOOSTRAPPER_VCPKG_HXX
 #define PROJECT_BOOSTRAPPER_VCPKG_HXX
 
-#include "formatters/generic.hxx"
+#include <formatters/generic.hxx>
 
 namespace vm::formatters {
 

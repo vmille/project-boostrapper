@@ -5,9 +5,10 @@
 #ifndef PROJECT_BOOSTRAPPER_NIX_HXX
 #define PROJECT_BOOSTRAPPER_NIX_HXX
 
-#include "fmt/core.h"
-#include "formatters/generic.hxx"
-#include <fmt/format.h>
+
+#include <formatters/generic.hxx>
+#include <fmt/ranges.h>
+#include <fmt/core.h>
 
 namespace vm::formatters {
 

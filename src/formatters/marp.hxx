@@ -5,7 +5,7 @@
 #ifndef PROJECT_BOOSTRAPPER_MARP_HXX
 #define PROJECT_BOOSTRAPPER_MARP_HXX
 
-#include "formatters/generic.hxx"
+#include <formatters/generic.hxx>
 
 namespace vm::formatters {
 

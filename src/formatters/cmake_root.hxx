@@ -4,7 +4,7 @@
 
 #ifndef PROJECT_BOOSTRAPPER_CMAKE_ROOT_HXX
 #define PROJECT_BOOSTRAPPER_CMAKE_ROOT_HXX
-#include "formatters/generic.hxx"
+#include <formatters/generic.hxx>
 
 namespace vm::formatters {
 

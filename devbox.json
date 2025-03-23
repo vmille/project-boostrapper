@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
+  "packages": [
+    "ninja@latest",
+    "clang@latest",
+    "vcpkg@latest",
+    "pkg-config@latest",
+    "meson@latest"
+  ]
+}
