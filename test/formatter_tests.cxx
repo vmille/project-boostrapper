@@ -44,21 +44,21 @@ constexpr auto nix_shell_hook<my_app_tag>() {
 TEST_CASE("shell.nix / package name", "[formatter][nix]") {
   using namespace Catch::Matchers;
   auto constexpr f = vm::formatters::file_formatter<vm::formatters::nix_tag>();
-  auto p = vm::formatters::nix_package_names_format<vm::formatters::my_app_tag>();
+  const auto p = vm::formatters::nix_package_names_format<vm::formatters::my_app_tag>();
   REQUIRE_THAT(fmt::format(f, fmt::arg("packages", p), fmt::arg("hooks", "")), Matches("[\\S\\s]*packages = \\[[\\s]*pkgs\\.my-app[\\s]*\\][\\S\\s]*"));
 }
 
 TEST_CASE("shell.nix / package hook", "[formatter][nix]") {
   using namespace Catch::Matchers;
   auto constexpr f = vm::formatters::file_formatter<vm::formatters::nix_tag>();
-  auto h = vm::formatters::nix_hooks_format<vm::formatters::marp_tag>();
+  const auto h = vm::formatters::nix_hooks_format<vm::formatters::marp_tag>();
   REQUIRE_THAT(fmt::format(f, fmt::arg("packages", ""), fmt::arg("hooks", h)), Matches("[\\s\\S]*shellHook = ''[\\s]*npm install @marp-team\\/marp-cli[\\s]*'';[\\s\\S]*\\n"));
 }
 
 TEST_CASE("shell.nix / package hooks", "[formatter][nix]") {
   using namespace Catch::Matchers;
   auto constexpr f = vm::formatters::file_formatter<vm::formatters::nix_tag>();
-  auto h = vm::formatters::nix_hooks_format<vm::formatters::marp_tag, vm::formatters::my_app_tag>();
+  const auto h = vm::formatters::nix_hooks_format<vm::formatters::marp_tag, vm::formatters::my_app_tag>();
   REQUIRE_THAT(fmt::format(f, fmt::arg("packages", ""), fmt::arg("hooks", h)), Matches("[\\s\\S]*shellHook = ''[\\s]*npm install @marp-team\\/marp-cli[\\s]*install my-app[\\s]*'';[\\s\\S]*\\n"));
 }
 
@@ -67,6 +67,6 @@ TEST_CASE("vcpkg", "[formatter][vcpkg]") {
   std::string res = fmt::format(f);
   std::ifstream ifs("reference/vcpkg.json");
   REQUIRE(ifs.is_open());
-  std::string ref{std::istreambuf_iterator<char>(ifs), std::istreambuf_iterator<char>()};
+  std::string ref{std::istreambuf_iterator(ifs), std::istreambuf_iterator<char>()};
   REQUIRE(ref == res);
 }
