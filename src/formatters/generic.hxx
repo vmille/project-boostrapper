@@ -2,8 +2,8 @@
 // Created by Vivien Mille on 28/12/2023.
 //
 
-#ifndef PROJECT_BOOSTRAPPER_GENERIC_HXX
-#define PROJECT_BOOSTRAPPER_GENERIC_HXX
+#ifndef PROJECT_BOOTSTRAPPER_GENERIC_HXX
+#define PROJECT_BOOTSTRAPPER_GENERIC_HXX
 
 namespace vm::formatters {
 
@@ -24,4 +24,4 @@ constexpr auto nix_shell_hook() {
 
 }
 
-#endif // PROJECT_BOOSTRAPPER_GENERIC_HXX
+#endif // PROJECT_BOOTSTRAPPER_GENERIC_HXX

@@ -3,8 +3,6 @@
   "packages": [
     "ninja@latest",
     "clang@latest",
-    "vcpkg@latest",
-    "pkg-config@latest",
     "meson@latest"
   ]
 }
